@@ -1,15 +1,72 @@
 .todocontainer {
-    background-color: white;
-    width:60vw;
-    min-height: 40vh;
-    margin: 10vh 20vw;
-    border:3px solid black;
-    border-radius: 20px;
-    padding:20px;
+  background-color: white;
+  width: 60vw;
+  min-height: 40vh;
+  margin: 10vh 20vw;
+  border: 3px solid black;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .pContainer {
-    text-align: center;
-    font-size: 30px;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.containerTask {
+  text-align: center;
+}
+
+.inputTask {
+  border: 2px solid black;
+  border-radius: 5px;
+  min-width: 200px;
+  min-height: 26px;
+}
+
+.btnAddTask {
+  margin: 10px;
+  font-size: 14px;
+  padding: 5px 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: plum;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.btnAddTask:hover {
+  background-color: lightgreen;
+}
+
+.liTask {
+  font-size: 20px;
+  text-align: left;
+  list-style-type: none;
+  margin-left: 20%;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  border:1px solid;
+  margin:10px;
+  border-radius: 10px;
+}
+
+.pTask {
+    overflow: hidden;
+    max-width:50%;
+}
+
+.btnDel{
+    margin: 0 20px;
+    font-size: 12px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: coral;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.btnDel:hover {
+    background-color: red;
 }

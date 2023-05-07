@@ -1,12 +1,38 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
+const task = [
+  { id: 1, task: "Eat", status: false },
+  { id: 2, task: "Code", status: false },
+  { id: 3, task: "Review", status: false },
+  {
+    id: 4,
+    task: "Drink fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffcoffee",
+    status: false,
+  },
+];
+
 const TodoList = () => {
-  return <main className={styles.todocontainer}>
+  const taskList = task.map((value, index) => (
+    <li key={value.id} className={styles.liTask}>
+      <p className={styles.pTask}>{value.task}</p>
+      <div>
+        <input type="checkbox" />
+        <button className={styles.btnDel}>Delete</button>
+      </div>
+    </li>
+  ));
 
-    <p className={styles.pContainer}>Todo List</p>
-
-  </main>;
+  return (
+    <main className={styles.todocontainer}>
+      <p className={styles.pContainer}>Todo List</p>
+      <div className={styles.containerTask}>
+        <input className={styles.inputTask} placeholder="Input task" />
+        <button className={styles.btnAddTask}>Add Task</button>
+      </div>
+      <ul>{taskList}</ul>
+    </main>
+  );
 };
 
 export default TodoList;
