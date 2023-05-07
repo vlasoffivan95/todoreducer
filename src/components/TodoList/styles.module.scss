@@ -48,25 +48,25 @@
   display: flex;
   justify-content: space-between;
   overflow: hidden;
-  border:1px solid;
-  margin:10px;
+  border: 1px solid;
+  margin: 10px;
   border-radius: 10px;
 }
 
 .pTask {
-    overflow: hidden;
-    max-width:50%;
+  overflow: hidden;
+  max-width: 50%;
 }
 
-.btnDel{
-    margin: 0 20px;
-    font-size: 12px;
-    padding: 10px 15px;
-    border-radius: 5px;
-    background-color: coral;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+.btnDel {
+  margin: 0 20px;
+  font-size: 12px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: coral;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 .btnDel:hover {
-    background-color: red;
+  background-color: red;
 }
