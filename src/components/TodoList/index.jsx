@@ -8,7 +8,7 @@ import {
 } from "../../store/slices/todoSlice";
 import { useState } from "react";
 
-const TodoList = (props) => {
+const TodoList = () => {
   const [input, setInput] = useState("");
   const taskLists = useSelector((state) => state.todo);
   const dispatch = useDispatch();
