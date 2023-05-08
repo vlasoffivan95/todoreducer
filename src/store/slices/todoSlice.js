@@ -13,7 +13,7 @@ const taskSlice = createSlice({
         addTask: (state, action) => {
             const todo = {
                 id: uuid(),
-                task: action.payload,
+                task: action.payload.trim(),
                 status: true,
             }
 

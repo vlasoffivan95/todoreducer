@@ -14,7 +14,7 @@ const TodoList = (props) => {
   const dispatch = useDispatch();
   const addTodo = (e) => {
     e.preventDefault();
-    dispatch(addTask(input));
+    dispatch(addTask(input.trim()===''?'Nothing here yet...':input));
     setInput("");
   };
   console.log(taskLists);
@@ -37,7 +37,7 @@ const TodoList = (props) => {
   return (
     <main className={styles.todocontainer}>
       <p className={styles.pContainer}>Todo List</p>
-      <form className={styles.containerTask} onSubmit={addTodo}>
+      <form className={styles.containerTask} onSubmit={addTodo} disabled='true' >
         <input
           className={styles.inputTask}
           placeholder="Input task"
