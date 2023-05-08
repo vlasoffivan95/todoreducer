@@ -2,22 +2,21 @@ import React from "react";
 import styles from "./styles.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { addTask } from "../../store/slices/todoSlice";
+import { useState } from "react";
 
-const task = [
-  { id: 1, task: "Eat", status: false },
-  { id: 2, task: "Code", status: false },
-  { id: 3, task: "Review", status: false },
-];
 
 const TodoList = (props) => {
-  const taskLists = useSelector(state=>state.todo)
-  const dispatch=useDispatch()
-// const addTaskNew = (newTask)=>dispatch(addTask(newTask))
-
-
+  const [input, setInput] = useState("");
+  const taskLists = useSelector((state) => state.todo);
+  const dispatch = useDispatch();
+  const addTodo = (e) => {
+    e.preventDefault();
+    dispatch(addTask(input));
+  };
   console.log(taskLists)
 
-  const taskList = task.map((value, index) => (
+
+ const taskList = taskLists.todos.map((value, index) => (
     <li key={value.id} className={styles.liTask}>
       <p className={styles.pTask}>{value.task}</p>
       <div>
@@ -30,15 +29,15 @@ const TodoList = (props) => {
   return (
     <main className={styles.todocontainer}>
       <p className={styles.pContainer}>Todo List</p>
-      <div className={styles.containerTask}>
+      <form className={styles.containerTask} onSubmit={addTodo}>
         <input
           className={styles.inputTask}
           placeholder="Input task"
           type="text"
-
+          onChange={(e) => setInput(e.target.value)}
         />
         <button className={styles.btnAddTask}>Add Task</button>
-      </div>
+      </form>
       <ul>{taskList}</ul>
     </main>
   );
