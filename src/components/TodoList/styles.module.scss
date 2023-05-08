@@ -39,7 +39,7 @@
   background-color: lightgreen;
 }
 
-.liTask {
+.liTask, .liTaskTrue {
   font-size: 20px;
   text-align: left;
   list-style-type: none;
@@ -69,4 +69,9 @@
 
 .btnDel:hover {
   background-color: red;
+}
+
+
+.liTaskTrue {
+  background-color: greenyellow;
 }

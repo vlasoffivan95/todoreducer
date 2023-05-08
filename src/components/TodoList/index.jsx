@@ -1,9 +1,12 @@
 import React from "react";
 import styles from "./styles.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { addTask } from "../../store/slices/todoSlice";
+import {
+  addTask,
+  deleteTask,
+  changeStatus,
+} from "../../store/slices/todoSlice";
 import { useState } from "react";
-
 
 const TodoList = (props) => {
   const [input, setInput] = useState("");
@@ -12,16 +15,21 @@ const TodoList = (props) => {
   const addTodo = (e) => {
     e.preventDefault();
     dispatch(addTask(input));
+    setInput("");
   };
-  console.log(taskLists)
+  console.log(taskLists);
 
-
- const taskList = taskLists.todos.map((value, index) => (
-    <li key={value.id} className={styles.liTask}>
+  const taskList = taskLists.todos.map((value, index) => (
+    <li key={value.id} className={value.status?styles.liTask:styles.liTaskTrue}>
       <p className={styles.pTask}>{value.task}</p>
       <div>
-        <input type="checkbox" value={true} />
-        <button className={styles.btnDel}>Delete</button>
+        <input type="checkbox" value={value.id} onClick={() => dispatch(changeStatus(value.id))} disabled={value.status?false:true} />
+        <button
+          className={styles.btnDel}
+          onClick={() => dispatch(deleteTask(value.id))}
+        >
+          Delete
+        </button>
       </div>
     </li>
   ));
@@ -34,6 +42,7 @@ const TodoList = (props) => {
           className={styles.inputTask}
           placeholder="Input task"
           type="text"
+          value={input}
           onChange={(e) => setInput(e.target.value)}
         />
         <button className={styles.btnAddTask}>Add Task</button>
