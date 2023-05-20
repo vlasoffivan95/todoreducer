@@ -13,7 +13,7 @@ function TodoLists(props) {
   return (
     <div>
       {/* {taskList.length > 0 && */}
-        {taskList.map((t) => <article key={t.id}>{JSON.stringify(t)}</article>)}
+        {taskList.map((t) => <article key={t.id}><div>{t.text}</div></article>)}
         {/* <section>{taskList}</section> */}
     </div>
   );
