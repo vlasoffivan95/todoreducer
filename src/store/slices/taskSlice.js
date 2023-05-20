@@ -8,7 +8,7 @@ const getTaskList = createAsyncThunk(
     try {
       const {
         data: { data: taskList },
-      } = await API.getTask();
+      } = await API.getTask(arg);
       return taskList;
     } catch (error) {
       console.log(error);

@@ -14,11 +14,15 @@ function TodoLists(props) {
   const dispatch = useDispatch();
   const SubmitHandler = (values, formikBag) => {
     dispatch(addTask(values))
+    formikBag.resetForm()
   }
 
   useEffect(() => {
-    dispatch(getTaskList());
+    dispatch(getTaskList('Hello'));
   }, []);
+
+
+
 
   return (
     <>
