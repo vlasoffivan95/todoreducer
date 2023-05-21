@@ -1,0 +1,33 @@
+.menuContainer {
+
+  max-width: 300px;
+  max-height: 150px;
+  margin-top: 40px;
+  
+}
+
+.liList {
+  list-style-type: none;
+
+}
+
+.ulList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 100px;
+  list-style-type: none;
+}
+
+.aList {
+    text-decoration: none;
+    margin:10px;
+    color:white;
+    font-size:20px;
+    
+}
+
+.aList:hover {
+    background-color: white;
+    color:black;
+}

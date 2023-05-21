@@ -17,7 +17,6 @@ const TodoList = () => {
     dispatch(addTask(input.trim()===''?'Nothing here yet...':input));
     setInput("");
   };
-  console.log(taskLists);
 
   const taskList = taskLists.todos.map((value, index) => (
     <li key={value.id} className={value.status?styles.liTask:styles.liTaskTrue}>
@@ -37,7 +36,7 @@ const TodoList = () => {
   return (
     <main className={styles.todocontainer}>
       <p className={styles.pContainer}>Todo List</p>
-      <form className={styles.containerTask} onSubmit={addTodo} disabled='true' >
+      <form className={styles.containerTask} onSubmit={addTodo} disabled={true} >
         <input
           className={styles.inputTask}
           placeholder="Input task"
