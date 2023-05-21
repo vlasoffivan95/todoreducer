@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTaskList } from "store/slices/taskSlice";
-import {addTask} from "store/slices/addTaskSlice"
+import { getTaskList, addTask } from "store/slices/taskSlice";
 import { Field, Form, Formik } from "formik";
 
 const initialState = {
@@ -9,38 +8,33 @@ const initialState = {
 };
 
 function TodoLists(props) {
-  const { taskList} = useSelector((state) => state.tasks);
-  const {isLoading, error} = useSelector((state)=> state.addTask)
+  const { taskList } = useSelector((state) => state.tasks);
   const dispatch = useDispatch();
   const SubmitHandler = (values, formikBag) => {
-    dispatch(addTask(values))
-    formikBag.resetForm()
-  }
+    dispatch(addTask(values));
+    formikBag.resetForm();
+  };
 
   useEffect(() => {
-    dispatch(getTaskList('Hello'));
+    dispatch(getTaskList("Hello"));
   }, []);
 
-
-
+  const todoLists = taskList.map((todo, index) => (
+    <div key={todo.id}>
+      {todo.text}
+      <button>Delete</button>
+    </div>
+  ));
 
   return (
     <>
-    <Formik initialValues={initialState} onSubmit={SubmitHandler}>
+      <Formik initialValues={initialState} onSubmit={SubmitHandler}>
         <Form>
-            < Field name = "text" placeholder = "addTask" />
-            <button type = "submit">Add Task</button>
+          <Field name="text" placeholder="addTask" />
+          <button type="submit">Add Task</button>
         </Form>
-    </Formik>
-      <div>
-        {/* {taskList.length > 0 && */}
-        {taskList.map((t) => (
-          <article key={t.id}>
-            <div>{t.text}</div>
-          </article>
-        ))}
-        {/* <section>{taskList}</section> */}
-      </div>
+      </Formik>
+      <div>{todoLists}</div>
     </>
   );
 }
